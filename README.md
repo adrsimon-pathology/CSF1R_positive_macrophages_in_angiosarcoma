@@ -9,3 +9,7 @@ Supplementary_Material_Cluster1_vs_other.cys: This file contains the Cytoscape S
 Supplementary_Material_Proteomics_clusters_AS_subtypes.cys: This file contains the Cytoscape STRING PPI analyses of proteomic clusters of angiosarcoma subtypes.
 
 Supplementary_Methods_Script_IHC_analyses_AS.R: R script for IHC analyses
+
+Supplementary_Methods_Script_Limma_AS_subtypes.R: Script for proteomic analyses for AS subtypes.
+
+
