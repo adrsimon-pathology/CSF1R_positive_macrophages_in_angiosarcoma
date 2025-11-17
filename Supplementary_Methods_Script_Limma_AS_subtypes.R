@@ -52,7 +52,7 @@ library("gprofiler2")
 library("msigdbr")
 library("umap")
 
-counts <- read.csv("AS_count_data_cluster_proteins.csv", sep=";", row.names = 1)
+counts <- read.csv("insert file path")
 colnames(counts) <- sub("^X", "", colnames(counts))
 
 col<- read.csv("AS_col_data_cluster.csv", sep=";", row.names = 1)
@@ -64,7 +64,7 @@ all(colnames(exprs) == rownames(meta))
 
 
 #-----------set wd----------
-setwd("D:/SARCOMA_RESEARCH/CSF1R_Angiosarcoma_Köln_Fortune/Proteomic_analyses/Results_proteomics")
+setwd("insert wd")
 
 
 #---------UMAP proteomics data by AS subtype-------
@@ -116,7 +116,7 @@ dev.off()
 
 
 #------LIMMA Primary AS vs. benign tissue----------
-counts <- read.csv("AS_count_data_cluster_proteins.csv", sep=";", row.names = 1)
+counts <- read.csv("insert file path")
 colnames(counts) <- sub("^X", "", colnames(counts))
 
 col<- read.csv("AS_col_data_cluster.csv", sep=";", row.names = 1)
@@ -167,7 +167,7 @@ res_unique$Regulation[res_unique$logFC <= log2FC_down & res_unique$adj.P.Val < p
 
 
 #------LIMMA Secondary AS vs. benign tissue ----------
-counts <- read.csv("AS_count_data_cluster_proteins.csv", sep=";", row.names = 1)
+counts <- read.csv("insert file path")
 colnames(counts) <- sub("^X", "", colnames(counts))
 
 col<- read.csv("AS_col_data_cluster.csv", sep=";", row.names = 1)
@@ -216,10 +216,10 @@ res_unique$Regulation[res_unique$logFC <= log2FC_down & res_unique$adj.P.Val < p
 
 
 #------LIMMA Visceral AS vs. benign tissue ----------
-counts <- read.csv("AS_count_data_cluster_proteins.csv", sep=";", row.names = 1)
+counts <- read.csv("insert file path")
 colnames(counts) <- sub("^X", "", colnames(counts))
 
-col<- read.csv("AS_col_data_cluster.csv", sep=";", row.names = 1)
+col<- read.csv("insert file path")
 
 common_samples <- intersect(colnames(counts), rownames(col))
 exprs <- counts[, common_samples, drop = FALSE]
@@ -261,4 +261,5 @@ cat("Number of downregulated proteins (log2FC <= -1.0):", nrow(downregulated), "
 res_unique$Regulation <- "NS"  # NS = not significant
 res_unique$Regulation[res_unique$logFC >= log2FC_up & res_unique$adj.P.Val < pval_threshold] <- "Up"
 res_unique$Regulation[res_unique$logFC <= log2FC_down & res_unique$adj.P.Val < pval_threshold] <- "Down"
+
 
