@@ -12,4 +12,5 @@ Supplementary_Methods_Script_IHC_analyses_AS.R: R script for IHC analyses
 
 Supplementary_Methods_Script_Limma_AS_subtypes.R: Script for proteomic analyses for AS subtypes.
 
+Supplementary_Methods_Script_Limma_Cluster1_vs_other.R: Script for proteomic analyses for IC Cluster 1 vs. Cluster 2&3.
 
