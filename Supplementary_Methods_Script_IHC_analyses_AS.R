@@ -43,12 +43,11 @@ library("ConsensusClusterPlus")
 
 #--------------Set working directory-------------------------
 
-setwd("D:/SARCOMA_RESEARCH/CSF1R_Angiosarcoma_Köln_Fortune/IHC_analyses")
+setwd("insert path to wd")
 
 
 #---------------Read in clinicopathological data--------------
-col_all <- read.csv("AS_data_09_25.csv", header = TRUE, row.names = 1, sep=";")
-write.csv(col_all,file="AS_backup.csv")
+col_all <- read.csv("insert file to data")
 col_all$follow_up_m[col_all$follow_up_m < 1] <- NA
 col_all$DFS_m[col_all$DFS_m < 1] <- NA
 col_all$age<-as.numeric(col_all$age)
@@ -1141,5 +1140,6 @@ cox_multi <- coxph(surv_object ~ cluster_CSF1R_vs_other+
                    data = col_all_cluster
 )
 summary(cox_multi)
+
 
 
