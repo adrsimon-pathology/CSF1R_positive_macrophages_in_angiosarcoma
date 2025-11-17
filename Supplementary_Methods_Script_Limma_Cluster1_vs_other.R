@@ -52,15 +52,15 @@ library("gprofiler2")
 library("msigdbr")
 
 #--------------set wd----------------
-setwd("D:/SARCOMA_RESEARCH/CSF1R_Angiosarcoma_Köln_Fortune/Proteomic_analyses/Results_proteomics")
+setwd("insert wd")
 
 
 
 #-------LIMMA Cluster 1 vs. other------------
-counts <- read.csv("AS_count_data_cluster_proteins.csv", sep=";", row.names = 1)
+counts <- read.csv("insert file path")
 colnames(counts) <- sub("^X", "", colnames(counts))
 
-col<- read.csv("AS_col_data_cluster.csv", sep=";", row.names = 1)
+col<- read.csv("insert file path")
 
 common_samples <- intersect(colnames(counts), rownames(col))
 exprs <- counts[, common_samples, drop = FALSE]
@@ -107,9 +107,9 @@ table(meta$AS_subtype_simple)
 
 
 #----------Figure 4B UMAP Cluster 1 vs. other---------------------
-counts <- read.csv("AS_count_data_cluster.csv", sep=";", row.names = 1)
+counts <- read.csv("insert file path")
 colnames(counts) <- sub("^X", "", colnames(counts))
-col <- read.csv("AS_col_data_cluster.csv", sep=";", row.names = 1)
+col <- read.csv("insert file path")
 
 common_samples <- intersect(colnames(counts), rownames(col))
 exprs <- counts[, common_samples, drop = FALSE]
@@ -165,9 +165,9 @@ dev.off()
 
 
 #----------Figure 4A: HEATMAP Clusters-----------
-counts <- read.csv("AS_count_data_cluster_proteins.csv", sep=";", row.names = 1)
+counts <- read.csv("insert file path")
 colnames(counts) <- sub("^X", "", colnames(counts))
-col <- read.csv("AS_col_data_cluster.csv", sep=";", row.names = 1)
+col <- read.csv("insert file path")
 common_samples <- intersect(colnames(counts), rownames(col))
 exprs <- counts[, common_samples, drop = FALSE]
 meta  <- col[common_samples, , drop = FALSE]
@@ -281,9 +281,9 @@ dev.off()
 
 
 # --- 1. Identify significant up/downregulated proteins ---
-counts <- read.csv("AS_count_data_cluster_proteins.csv", sep=";", row.names = 1)
+counts <- read.csv("insert file path")
 colnames(counts) <- sub("^X", "", colnames(counts))
-col <- read.csv("AS_col_data_cluster.csv", sep=";", row.names = 1)
+col <- read.csv("insert file path")
 
 # --- Match samples ---
 common_samples <- intersect(colnames(counts), rownames(col))
@@ -391,7 +391,7 @@ msig_h_list <- msig_h %>%
   select(gs_name, gene_symbol) %>%
   as.data.frame()
 
-cluster1_data <- read.csv("Cluster_1_up.csv", header = TRUE, stringsAsFactors = FALSE)
+cluster1_data <- read.csv("insert file path")
 
 # --- Step 2: Extract the list of genes/proteins ---
 cluster_proteins <- cluster1_data$Gene
@@ -425,7 +425,7 @@ gost_results_flat[list_cols] <- lapply(
 )
 
 # Write to CSV safely
-write.csv(gost_results_flat, "cluster1_up_gprofiler_enrichment.csv", row.names = FALSE)
+write.csv("insert file path")
 
 # --- 1️⃣ Separate g:Profiler enrichment results ---
 go_bp    <- gost_results_flat %>% filter(source == "GO:BP")
@@ -516,7 +516,7 @@ ggplot(combined_top,
 dev.off()
 
 
-cluster2_data <- read.csv("Cluster_2_up.csv", header = TRUE, stringsAsFactors = FALSE)
+cluster2_data <- read.csv("insert file path")
 
 # --- Step 2: Extract the list of genes/proteins ---
 cluster_proteins <- cluster2_data$Gene
@@ -550,7 +550,7 @@ gost_results_flat[list_cols] <- lapply(
 )
 
 # Write to CSV safely
-write.csv(gost_results_flat, "cluster2_up_gprofiler_enrichment.csv", row.names = FALSE)
+write.csv("insert file path")
 
 # --- 1️⃣ Separate g:Profiler enrichment results ---
 go_bp    <- gost_results_flat %>% filter(source == "GO:BP")
@@ -643,9 +643,7 @@ dev.off()
 
 #--------pathway analyses and enrichment annotation: principle------------
 
-cluster1_data <- read.csv("Cluster_1_down.csv",
-                          header = TRUE, 
-                          stringsAsFactors = FALSE) # insert clusters identified in Cytoscape
+cluster1_data <- read.csv("insert file path")
 
 cluster_proteins <- cluster1_data$Gene
 
@@ -748,5 +746,6 @@ ggplot(combined_top,
     legend.position = "none")
 
 dev.off()
+
 
 
